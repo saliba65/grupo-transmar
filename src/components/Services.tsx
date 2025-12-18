@@ -3,8 +3,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Truck, Key, Package, ArrowRight } from 'lucide-react';
 import truckForest from '@/assets/truck-forest.jpeg';
-import truckSide from '@/assets/truck-side.jpg';
 import truckSilo from '@/assets/truck-silo.jpeg';
+import truckHero from '@/assets/truck-hero.jpeg';
 
 const Services = () => {
   const { t } = useLanguage();
@@ -14,19 +14,19 @@ const Services = () => {
       icon: Truck,
       title: t.services.sales.title,
       description: t.services.sales.description,
-      image: truckSide,
+      image: truckHero,
     },
     {
       icon: Truck,
       title: t.services.rental.title,
       description: t.services.rental.description,
-      image: truckForest,
+      image: truckSilo,
     },
     {
       icon: Truck,
       title: t.services.transport.title,
       description: t.services.transport.description,
-      image: truckSilo,
+      image: truckForest,
     },
   ];
 
