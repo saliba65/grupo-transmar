@@ -17,13 +17,13 @@ const Services = () => {
       image: truckSide,
     },
     {
-      icon: Key,
+      icon: Truck,
       title: t.services.rental.title,
       description: t.services.rental.description,
       image: truckForest,
     },
     {
-      icon: Package,
+      icon: Truck,
       title: t.services.transport.title,
       description: t.services.transport.description,
       image: truckSilo,

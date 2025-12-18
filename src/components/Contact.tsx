@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import mapImage from '@/assets/map.png';
 
 const Contact = () => {
   const { t, language } = useLanguage();
@@ -38,12 +39,12 @@ const Contact = () => {
     {
       icon: Phone,
       label: language === 'pt' ? 'Telefone' : 'Phone',
-      value: '+55 (XX) XXXXX-XXXX',
+      value: '+55 (31) 3826-5085',
     },
     {
       icon: Mail,
       label: 'Email',
-      value: 'contato@grupotransmar.com.br',
+      value: 'transmar@grupotransmar.com.br',
     },
     {
       icon: Clock,
@@ -80,18 +81,19 @@ const Contact = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-foreground">{info.label}</div>
-                    <div className="text-muted-foreground text-sm">{info.value}</div>
+                    <div className="text-muted-foreground text-xs">{info.value}</div>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Map Placeholder */}
-            <div className="bg-muted rounded-xl h-64 flex items-center justify-center">
-              <div className="text-center text-muted-foreground">
-                <MapPin className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                <p>{language === 'pt' ? 'Mapa em breve' : 'Map coming soon'}</p>
-              </div>
+            {/* Map */}
+            <div className="rounded-xl overflow-hidden h-64 bg-muted">
+              <img
+                src={mapImage}
+                alt={language === 'pt' ? 'Mapa de localização' : 'Location map'}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 

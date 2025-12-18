@@ -5,7 +5,7 @@ const About = () => {
   const { t, language } = useLanguage();
 
   return (
-    <section id="about" className="py-20 md:py-32 bg-background">
+    <section id="about" className="pt-20 md:pt-32 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image */}
@@ -37,7 +37,7 @@ const About = () => {
             {/* Stats Grid */}
             <div className="grid grid-cols-3 gap-6 mt-10">
               <div className="text-center p-4 bg-muted rounded-lg">
-                <div className="text-2xl md:text-3xl font-heading font-bold text-primary">100+</div>
+                <div className="text-2xl md:text-3xl font-heading font-bold text-primary">250+</div>
                 <div className="text-sm text-muted-foreground mt-1">
                   {language === 'pt' ? 'Veículos' : 'Vehicles'}
                 </div>
