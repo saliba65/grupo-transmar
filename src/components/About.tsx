@@ -1,5 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import truckSide from '@/assets/truck-side.jpg';
+import truckSide from '@/assets/truck-forest.jpeg';
 
 const About = () => {
   const { t, language } = useLanguage();
