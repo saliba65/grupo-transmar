@@ -5,12 +5,12 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: "/grupo-transmar/", // ADICIONE ESTA LINHA EXATAMENTE ASSIM
   server: {
     host: "::",
     port: 8080,
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
-  base: "/grupo-transmar/", // Use o nome exato do seu repo no GitHub
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
