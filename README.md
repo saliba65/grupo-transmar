@@ -1,73 +1,79 @@
-# Welcome to your Lovable project
+# Grupo Transmar 
 
-## Project info
+## Descrição do Projeto
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Este é o site oficial do Grupo Transmar, uma empresa especializada em serviços de transporte marítimo e logística. O site foi desenvolvido para apresentar os serviços oferecidos, a história da empresa, informações de contato e uma linha do tempo dos principais marcos.
 
-## How can I edit this code?
+O propósito deste site é fornecer uma plataforma digital para que clientes, parceiros e interessados possam conhecer melhor o Grupo Transmar, seus valores e capacidades no setor de transporte e logística.
 
-There are several ways of editing your application.
+## Acesso ao Site em Produção
 
-**Use Lovable**
+Você pode acessar o site em produção através da seguinte URL: https://saliba65.github.io/grupo-transmar/
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Screenshots
 
-Changes made via Lovable will be committed automatically to this repo.
+![home](image.png)
+![about-us](image-1.png)
+![services](image-2.png)
 
-**Use your preferred IDE**
+## Tecnologias Utilizadas
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Este projeto foi construído com:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Vite**: Ferramenta de build rápida para desenvolvimento frontend
+- **TypeScript**: Superset do JavaScript com tipagem estática
+- **React**: Biblioteca para construção de interfaces de usuário
+- **shadcn-ui**: Componentes de UI reutilizáveis e acessíveis
+- **Tailwind CSS**: Framework CSS utilitário para estilização
 
-Follow these steps:
+## Como Rodar o Projeto Localmente
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Para executar este projeto em sua máquina local, siga os passos abaixo:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Pré-requisitos
 
-# Step 3: Install the necessary dependencies.
-npm i
+- Node.js & npm instalados ([instale com nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### Passos
 
-**Edit a file directly in GitHub**
+1. **Clone o repositório**:
+   ```sh
+   git clone <https://github.com/saliba65/grupo-transmar.git>
+   ```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+2. **Navegue para o diretório do projeto**:
+   ```sh
+   cd grupo-transmar
+   ```
 
-**Use GitHub Codespaces**
+3. **Instale as dependências**:
+   ```sh
+   npm install
+   ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+4. **Inicie o servidor de desenvolvimento**:
+   ```sh
+   npm run dev
+   ```
 
-## What technologies are used for this project?
+O site estará disponível em `http://localhost:8080` (ou a porta indicada no terminal).
 
-This project is built with:
+## Como Fazer Deploy
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Este projeto está configurado para deploy automático no GitHub Pages através de GitHub Actions.
 
-## How can I deploy this project?
+### Deploy Automático
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+1. Faça push das suas alterações para a branch `main`:
+   ```sh
+   git add .
+   git commit -m "Sua mensagem de commit"
+   git push origin main
+   ```
 
-## Can I connect a custom domain to my Lovable project?
+2. O GitHub Actions irá automaticamente:
+   - Instalar as dependências
+   - Construir o projeto
+   - Fazer deploy para o GitHub Pages
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+![deploy](image-3.png)
