@@ -60,9 +60,6 @@ const Services = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
                 <div className="absolute bottom-4 left-4">
-                  <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
-                    <service.icon className="h-6 w-6 text-accent-foreground" />
-                  </div>
                 </div>
               </div>
 

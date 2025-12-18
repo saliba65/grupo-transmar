@@ -1,5 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import truckSilo from '@/assets/truck-silo.jpeg';
+import truckSide from '@/assets/truck-side.jpg';
 
 const About = () => {
   const { t, language } = useLanguage();
@@ -12,7 +12,7 @@ const About = () => {
           <div className="relative group">
             <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 to-navy/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
             <img 
-              src={truckSilo} 
+              src={truckSide} 
               alt="Transmar Truck at Industrial Site" 
               className="relative rounded-xl shadow-2xl w-full h-[400px] md:h-[500px] object-cover"
             />
