@@ -1,6 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { Truck, Key, Package, ArrowRight } from 'lucide-react';
 import truckForest from '@/assets/truck-forest.jpeg';
 import truckSilo from '@/assets/truck-silo.jpeg';
@@ -73,12 +74,14 @@ const Services = () => {
                 <CardDescription className="text-muted-foreground text-base mb-4">
                   {service.description}
                 </CardDescription>
-                <Button 
-                  variant="ghost" 
-                  className="group/btn text-accent hover:text-accent hover:bg-accent/10 p-0"
-                >
-                  {t.services.cta}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                <Button asChild className="bg-accent hover:bg-orange-hover text-accent-foreground font-semibold">
+                  <Link
+                    to="/services"
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
+                    {t.services.cta}
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
