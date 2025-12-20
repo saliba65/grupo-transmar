@@ -1,20 +1,25 @@
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useLocation } from 'react-router-dom';
 import { Calendar, Factory, Construction, Mountain } from 'lucide-react';
 
 const Timeline = () => {
   const { t } = useLanguage();
+  const location = useLocation();
 
   const icons = [Calendar, Factory, Construction, Mountain];
 
+  const isHistoryPage = location.pathname === '/history';
+  const backgroundClass = isHistoryPage ? 'bg-white text-foreground' : 'bg-primary text-primary-foreground';
+
   return (
-    <section id="history" className="py-20 md:py-32 bg-primary text-primary-foreground">
+    <section id="history" className={`py-20 md:py-32 ${backgroundClass}`}>
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4">
             {t.timeline.title}
           </h2>
-          <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto">
+          <p className={`text-lg max-w-2xl mx-auto ${isHistoryPage ? 'text-muted-foreground' : 'text-primary-foreground/80'}`}>
             {t.timeline.subtitle}
           </p>
           <div className="w-20 h-1 bg-accent mx-auto mt-6" />
@@ -38,10 +43,10 @@ const Timeline = () => {
               >
                 {/* Content */}
                 <div className={`ml-12 md:ml-0 md:w-1/2 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
-                  <div className="bg-navy-light/30 backdrop-blur-sm rounded-xl p-6 hover:bg-navy-light/50 transition-colors duration-300">
+                  <div className={`rounded-xl p-6 transition-colors duration-300 ${isHistoryPage ? 'bg-gray-50 hover:bg-gray-100' : 'bg-navy-light/30 backdrop-blur-sm hover:bg-navy-light/50'}`}>
                     <div className="text-accent font-semibold text-sm mb-2">{event.date}</div>
                     <h3 className="text-xl font-heading font-bold mb-2">{event.title}</h3>
-                    <p className="text-primary-foreground/80">{event.description}</p>
+                    <p className={isHistoryPage ? 'text-muted-foreground' : 'text-primary-foreground/80'}>{event.description}</p>
                   </div>
                 </div>
 
