@@ -6,7 +6,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pb-32">
+      <main>
         <Contact />
       </main>
       <Footer />

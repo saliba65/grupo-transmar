@@ -4,8 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
-import mapImage from '@/assets/map.png';
+import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
   const { t, language } = useLanguage();
@@ -87,13 +86,42 @@ const Contact = () => {
               ))}
             </div>
 
+            {/* WhatsApp Contact */}
+            <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-6 text-white mb-8">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                  <MessageCircle className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold">
+                    {language === 'pt' ? 'Fale Conosco pelo WhatsApp' : 'Contact Us on WhatsApp'}
+                  </h3>
+                  <p className="text-green-100 text-sm">
+                    {language === 'pt' ? 'Resposta rápida e direta' : 'Fast and direct response'}
+                  </p>
+                </div>
+              </div>
+              <Button
+                onClick={() => window.open('https://wa.me/553138265085?text=Olá! Gostaria de mais informações sobre os serviços da Transmar.', '_blank')}
+                className="w-full bg-white text-green-600 hover:bg-green-50 font-semibold py-3 rounded-lg transition-colors"
+              >
+                <MessageCircle className="mr-2 h-5 w-5" />
+                {language === 'pt' ? 'Iniciar Conversa' : 'Start Chat'}
+              </Button>
+            </div>
+
             {/* Map */}
             <div className="rounded-xl overflow-hidden h-64 bg-muted">
-              <img
-                src={mapImage}
-                alt={language === 'pt' ? 'Mapa de localização' : 'Location map'}
-                className="w-full h-full object-cover"
-              />
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8946.528303698933!2d-42.55773293809014!3d-19.47488209781721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xafffe72aca8983%3A0x966ea941775a9343!2sR.%20Monasita%2C%20165%20-%20Igua%C3%A7u%2C%20Ipatinga%20-%20MG%2C%2035162-098!5e0!3m2!1spt-BR!2sbr!4v1766254565292!5m2!1spt-BR!2sbr"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title={language === 'pt' ? 'Localização da Transmar' : 'Transmar Location'}
+              ></iframe>
             </div>
           </div>
 
