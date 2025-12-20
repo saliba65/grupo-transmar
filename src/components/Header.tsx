@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Menu, X, ChevronDown, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link, useLocation } from 'react-router-dom';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,6 +13,7 @@ import {
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navLinks = [
     { href: '#home', label: t.nav.home },
@@ -20,14 +22,6 @@ const Header = () => {
     { href: '#history', label: t.nav.history },
     { href: '#contact', label: t.nav.contact },
   ];
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
-  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md border-b border-navy-light/20">
@@ -42,15 +36,18 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => scrollToSection(link.href)}
-                className="text-primary-foreground/80 hover:text-accent transition-colors duration-200 font-medium text-sm tracking-wide"
-              >
-                {link.label}
-              </button>
-            ))}
+            {navLinks.map((link) => {
+              const to = link.href === '#about' ? '/about' : `/#${link.href.slice(1)}`;
+              return (
+                <Link
+                  key={link.href}
+                  to={to}
+                  className="text-primary-foreground/80 hover:text-accent transition-colors duration-200 font-medium text-sm tracking-wide"
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Language Selector & CTA */}
@@ -79,11 +76,13 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button 
-              onClick={() => scrollToSection('#contact')}
-              className="hidden md:inline-flex bg-accent hover:bg-orange-hover text-accent-foreground font-semibold"
-            >
-              {t.hero.cta}
+            <Button asChild>
+              <Link
+                to="/#contact"
+                className="hidden md:inline-flex bg-accent hover:bg-orange-hover text-accent-foreground font-semibold"
+              >
+                {t.hero.cta}
+              </Link>
             </Button>
 
             {/* Mobile Menu Toggle */}
@@ -100,20 +99,27 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden pb-6 animate-fade-in">
             <nav className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-primary-foreground/80 hover:text-accent transition-colors py-2 text-left font-medium"
+              {navLinks.map((link) => {
+                const to = link.href === '#about' ? '/about' : `/#${link.href.slice(1)}`;
+                return (
+                  <Link
+                    key={link.href}
+                    to={to}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-primary-foreground/80 hover:text-accent transition-colors py-2 text-left font-medium"
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+              <Button asChild>
+                <Link
+                  to="/#contact"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="mt-2 bg-accent hover:bg-orange-hover text-accent-foreground font-semibold w-full"
                 >
-                  {link.label}
-                </button>
-              ))}
-              <Button 
-                onClick={() => scrollToSection('#contact')}
-                className="mt-2 bg-accent hover:bg-orange-hover text-accent-foreground font-semibold w-full"
-              >
-                {t.hero.cta}
+                  {t.hero.cta}
+                </Link>
               </Button>
             </nav>
           </div>
