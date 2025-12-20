@@ -6,7 +6,7 @@ const HistoryPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pb-32">
+      <main>
         <Timeline />
       </main>
       <Footer />
