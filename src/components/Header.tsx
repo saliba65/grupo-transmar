@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Menu, X, ChevronDown, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,14 +13,13 @@ import {
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
 
   const navLinks = [
-    { href: '#home', label: t.nav.home },
-    { href: '#about', label: t.nav.about },
-    { href: '#services', label: t.nav.services },
-    { href: '#history', label: t.nav.history },
-    { href: '#contact', label: t.nav.contact },
+    { to: '/', label: t.nav.home },
+    { to: '/about', label: t.nav.about },
+    { to: '/services', label: t.nav.services },
+    { to: '/history', label: t.nav.history },
+    { to: '/contact', label: t.nav.contact },
   ];
 
   return (
@@ -36,18 +35,16 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => {
-              const to = link.href === '#about' ? '/about' : `/#${link.href.slice(1)}`;
-              return (
-                <Link
-                  key={link.href}
-                  to={to}
-                  className="text-primary-foreground/80 hover:text-accent transition-colors duration-200 font-medium text-sm tracking-wide"
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
+            {navLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                onClick={() => window.scrollTo(0, 0)}
+                className="text-primary-foreground/80 hover:text-accent transition-colors duration-200 font-medium text-sm tracking-wide"
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
           {/* Language Selector & CTA */}
@@ -76,11 +73,10 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button asChild>
+            <Button asChild className="hidden md:inline-flex bg-accent hover:bg-orange-hover text-accent-foreground font-semibold">
               <Link
-                to="/#contact"
-                className="hidden md:inline-flex bg-accent hover:bg-orange-hover text-accent-foreground font-semibold"
-              >
+                to="/contact"                                 
+                onClick={() => window.scrollTo(0, 0)}>
                 {t.hero.cta}
               </Link>
             </Button>
@@ -99,24 +95,20 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden pb-6 animate-fade-in">
             <nav className="flex flex-col gap-4">
-              {navLinks.map((link) => {
-                const to = link.href === '#about' ? '/about' : `/#${link.href.slice(1)}`;
-                return (
-                  <Link
-                    key={link.href}
-                    to={to}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-primary-foreground/80 hover:text-accent transition-colors py-2 text-left font-medium"
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-              <Button asChild>
+              {navLinks.map((link) => (
                 <Link
-                  to="/#contact"
+                  key={link.to}
+                  to={link.to}
                   onClick={() => setIsMenuOpen(false)}
-                  className="mt-2 bg-accent hover:bg-orange-hover text-accent-foreground font-semibold w-full"
+                  className="text-primary-foreground/80 hover:text-accent transition-colors py-2 text-left font-medium"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Button asChild className="mt-2 bg-orange hover:bg-orange-hover text-white font-semibold w-full transition-colors duration-200">
+                <Link
+                  to="/contact"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {t.hero.cta}
                 </Link>

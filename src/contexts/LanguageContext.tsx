@@ -27,14 +27,37 @@ interface Translations {
     sales: {
       title: string;
       description: string;
+      features?: string[];
     };
     rental: {
       title: string;
       description: string;
+      features?: string[];
     };
     transport: {
       title: string;
       description: string;
+      features?: string[];
+    };
+    cta: string;
+  };
+  'our-services': {
+    title: string;
+    subtitle: string;
+    sales: {
+      title: string;
+      description: string;
+      features?: string[];
+    };
+    rental: {
+      title: string;
+      description: string;
+      features?: string[];
+    };
+    transport: {
+      title: string;
+      description: string;
+      features?: string[];
     };
     cta: string;
   };
@@ -101,6 +124,42 @@ const translations: Record<Language, Translations> = {
       },
       cta: 'Saiba Mais',
     },
+    'our-services': {
+      title: 'Nossos Serviços',
+      subtitle: 'Soluções completas para suas necessidades de transporte e logística',
+      sales: {
+        title: 'Silo Rodoviário 4 Eixos (PBTC 58,5t)',
+        description: 'Nossa solução premium para granéis sólidos. Com tecnologia de 4 eixos, este implemento oferece a máxima capacidade de carga permitida pela legislação (58,5t), sendo ideal para o transporte de longa distância de cimento, cal, milho e soja.',
+        features: [
+    'Maior capacidade de carga líquida do mercado',
+    'Sistema pneumático de descarga rápida',
+    'Ideal para produtos pulverulentos e grãos',
+    'Otimização de custos em percursos longos'
+  ],
+      },
+      rental: {
+       title: 'Silo Rodoviário 3 Eixos (PBTC 48,5t)',
+  description: 'Nossa solução ágil para distribuição regional. O Silo 3 Eixos oferece o equilíbrio ideal entre peso e performance, sendo a escolha perfeita para o transporte de cimento, cal e grãos em médias distâncias com máxima eficiência operacional.',
+  features: [
+    'Alta versatilidade para diferentes tipos de carga',
+    'Excelente manobrabilidade em áreas industriais',
+    'Otimizado para percursos de média distância',
+    'Descarga pneumática de alta precisão'
+  ],
+      },
+      transport: {
+       title: 'Carretas Basculantes',
+  description: 'Robustez e eficiência para operações pesadas. Nossas basculantes atendem com excelência os setores de mineração, siderurgia e construção civil, garantindo o escoamento de materiais com segurança e agilidade em terrenos severos.',
+  features: [
+    'Ideal para minérios, britas e insumos industriais',
+    'Sistema hidráulico de alta segurança',
+    'Caçambas de alta resistência abrasiva',
+    'Atendimento especializado em obras e usinas'
+  ],
+      },
+      cta: 'Saiba Mais',
+    },
+    
     timeline: {
       title: 'Nossa História',
       subtitle: 'Uma trajetória de crescimento e conquistas',
@@ -168,6 +227,12 @@ const translations: Record<Language, Translations> = {
       sales: {
         title: 'Silo Trailer 4 Axles (GCW 58.5t)',
         description: 'Designed to serve cement, lime, corn, and soy clients on long-distance routes.',
+        features: [
+          'Maximum load capacity in the market',
+          'Fast pneumatic unloading system',
+          'Ideal for powdered products and grains',
+          'Cost optimization on long routes'
+        ],
       },
       rental: {
         title: 'Silo Trailer 3 Axles (GCW 48.5t)',
@@ -176,6 +241,29 @@ const translations: Record<Language, Translations> = {
       transport: {
         title: 'Dump Trailers',
         description: 'Serving clients in mining, steel, quarry operations, and earthmoving projects.',
+      },
+      cta: 'Learn More',
+    },
+    'our-services': {
+      title: 'Our Services',
+      subtitle: 'Complete solutions for your transportation and logistics needs',
+      sales: {
+        title: 'Silo Trailer 4 Axles (GCW 58.5t)',
+        description: 'Designed to serve cement, lime, corn, and soy clients on long-distance routes.',
+      },
+      rental: {
+        title: 'Silo Trailer 3 Axles (GCW 48.5t)',
+        description: 'Designed to serve cement, lime, corn, and soy clients on medium-distance routes.',
+      },
+      transport: {
+        title: 'Dump Trailers',
+        description: 'Serving clients in mining, steel, quarry operations, and earthmoving projects.',
+        features: [
+          'Ideal for minerals, aggregates and industrial inputs',
+          'High safety hydraulic system',
+          'High abrasion resistant buckets',
+          'Specialized service in works and plants'
+        ],
       },
       cta: 'Learn More',
     },
